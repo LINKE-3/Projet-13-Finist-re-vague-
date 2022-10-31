@@ -1,0 +1,7 @@
+<p>uploader une image:</p>
+
+<form action="" method="post" novalidate enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}
+<input type="submit" value="Envoyer">
+</form>

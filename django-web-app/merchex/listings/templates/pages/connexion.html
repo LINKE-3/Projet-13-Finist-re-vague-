@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Pur Beurre</title>
+        {% load static %}
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        <link rel="icon" href="/static/img/logo_page.png">
+    </head>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+
+              <a class="navbar-brand js-scroll-trigger" href="/">
+                <img src="/static/img/logo_pur_beurre.png" alt='logo' width='60px' height='50px'/>
+                Pur Beurre
+              </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    <header class="masthead">
+        <div class="container h-100">
+          <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <form method="post" action="{% url 'connection' %}">
+                    {% csrf_token %}
+                    <div class='form-wrapper'>
+                        <label for="{{ form.username.id_for_label }}">Nom d'utilisateur</label><br/>
+                        {{ form.username }}
+                    </div>
+                    <div class='form-wrapper'>
+                        <label for="{{ form.password.id_for_label }}">Mot de passe</label><br/>
+                        {{ form.password }}
+                    </div>
+                    {% if error %}
+                        <p></p>
+                        <p class='text-biscuit'>{{ error }}</p>
+                    {% endif %}
+                    <hr class="divider my-4">
+                    <input type="submit" value='Connexion' />
+                    <input type="hidden" name="next" value="{{ next }}">
+                </form>
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+
+            </div>
+          </div>
+        </div>
+    </header>
