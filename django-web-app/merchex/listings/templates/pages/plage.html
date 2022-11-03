@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Vague-Finistère</title>
+        <title>Finistère-Vague</title>
         {% load static %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -27,7 +27,7 @@
 
               <a class="navbar-brand js-scroll-trigger" href="/">
                 <img src="/static/img/logo_wave.png" alt='logo' width='60px' height='50px'/>
-                Vague-Finistère
+                Finistère-Vague
               </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -74,7 +74,11 @@
         <!-- plage section-->
         <section class="page-section" id="services">
           <div class="container">
-            <h2 class="text-center mt-0 text-bonbon">Dernier repport de vague:</h2>
+            {% if plage.photo == "0" %}
+              <h2 class="text-center mt-0 text-bonbon">Dernier repport de vague:</h2>
+            {% else %}
+              <h2 class="text-center mt-0 text-bonbon">Dernier repport de vague: {{ plage.time }}</h2>
+            {% endif %}
             <hr class="divider my-4">
             <div class="row col-md-12 product align-items-center justify-content-center">
               {% if plage.photo == "0" %}
