@@ -9,7 +9,6 @@ class Command(BaseCommand):
         try:
             all_data = Spot.objects.all()
             all_data.delete()
-            print("first", all_data)
 
         except:
             pass
