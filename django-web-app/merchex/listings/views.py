@@ -8,6 +8,7 @@ from django.template import loader
 from listings.forms import RegistrationForm, ContactUsForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from datetime import datetime
 
 from .forms import *
 
@@ -206,9 +207,9 @@ def contact(request, plage_name):
         if form.is_valid():
             print("it's valide")
             plage.photo = form.cleaned_data['photo']
+            plage.time = datetime.now().time()
             plage.save()
-            
-            #return redirect('plage/<path:name>')
+
             return render(request, 'pages/plage.html', context)
 
     else:
@@ -217,3 +218,4 @@ def contact(request, plage_name):
     return render(request,
             'pages/Testform.html',
             {'form': form})  # passe ce formulaire au gabarit
+    
