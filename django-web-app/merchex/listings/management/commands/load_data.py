@@ -6,6 +6,14 @@ class Command(BaseCommand):
     help = 'Populate our Plage Database with data from file'
 
     def handle(self, *args, **options):
+        try:
+            all_data = Spot.objects.all()
+            all_data.delete()
+            print("first", all_data)
+
+        except:
+            pass
+
         for plage in PLAGE:
             try:
                 model_spot = Spot(name=plage, photo="0")
