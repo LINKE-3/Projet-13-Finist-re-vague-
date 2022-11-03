@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class Spot(models.Model):
     name = models.CharField(max_length=155, unique=True)
     photo = models.ImageField(upload_to='images/')
-    time = models.IntegerField(default=0)
+    time = models.CharField(max_length=155, default=0)
 
     def __str__(self):
         return self.name
