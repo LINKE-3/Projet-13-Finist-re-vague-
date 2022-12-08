@@ -1,5 +1,5 @@
 # Projet-13-Finist-re-vague-
-application Django f
+application Django
 # finistere-vague
 
 Cette application à pour but d'aider les surfeurs à trouver de meilleurs spots de surfs.
